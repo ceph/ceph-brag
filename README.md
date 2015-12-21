@@ -10,7 +10,10 @@ In order to have your Ceph performance results included in this repository you n
 * Submitter must be willing to make results public
  
 # What to submit
-A properly formatted submission should come in the format of a pull request with a named folder in the format of "[Date][Time][cluster_uuid]" which will contain the following:
+A properly formatted submission should come in the format of a pull request with a named folder in the format of:
+* "[Date][Time][cluster_uuid]" 
+ 
+Which should contain the following:
 * JSON file following the format of example.json
 * A hardware info dump
 * A copy of sysctl
