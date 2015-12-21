@@ -1,10 +1,11 @@
 {
-  "cluter_uuid": "5e4eeae5-edf4-4d53-8ed5-5675207f9a35",
-  "date": "2014-05-04T20:00:34"
-  "submitter": {
+  "information": {
+  	"cluter_uuid": "5e4eeae5-edf4-4d53-8ed5-5675207f9a35",
+  	"date": "2014-05-04T20:00:34"
+  	"submitter": {
 	  "person": "..."
 	  "company": "..."
-	  }
+	}
   “note”: “a note about this test”
   }
   "platform": {
