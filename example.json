@@ -58,7 +58,7 @@
   },
   "network": {
 	  "pub_network": "10GB",
-	  "cluster_network": 40GB",
+	  "cluster_network": "40GB",
   },
   "clients": {
 	  "client_node_count": 16,
