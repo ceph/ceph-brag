@@ -1,0 +1,78 @@
+{
+  "hardware": [
+    {
+      "hostname": "burnupi01",
+      "manufacturer": "Dell Inc.",
+      "product_name": "PowerEdge R515",
+      "cpu_version": "AMD Opteron(tm) Processor 4184",
+      "cpu_speed_mhz": 2600,
+      "core_count": 6,
+      "memory_size_kb": 16418424,
+      "controller": "PERC H700"
+    },
+    {
+      "hostname": "burnupi02",
+      "manufacturer": "Dell Inc.",
+      "product_name": "PowerEdge R515",
+      "cpu_version": "AMD Opteron(tm) Processor 4184",
+      "cpu_speed_mhz": 2600,
+      "core_count": 6,
+      "memory_size_kb": 16418424,
+      "controller": "PERC H700"
+    },
+    {
+      "hostname": "burnupi03",
+      "manufacturer": "Dell Inc.",
+      "product_name": "PowerEdge R515",
+      "cpu_version": "AMD Opteron(tm) Processor 4184",
+      "cpu_speed_mhz": 2600,
+      "core_count": 6,
+      "memory_size_kb": 16418424,
+      "controller": "PERC H700"
+    }
+  ],
+  "disk": [
+    {
+      "hostname": "burnupi01",
+      "dev_path": "/dev/sda",
+      "vendor": "TOSHIBA",
+      "product": "MK1001TRKB",
+      "revision": "DCA8",
+      "capacity_bytes": "1000204886016",
+      "rotation_rate": "7200 rpm",
+      "type": "operating system"
+    },
+    {
+      "hostname": "burnupi01",
+      "dev_path": "/dev/sdb",
+      "vendor": "TOSHIBA",
+      "product": "MK1001TRKB",
+      "revision": "DCA8",
+      "capacity_bytes": "1000204886016",
+      "rotation_rate": "7200 rpm",
+      "type": "unknown"
+    },
+    {
+      "hostname": "burnupi01",
+      "dev_path": "/dev/sdc",
+      "vendor": "TOSHIBA",
+      "product": "MK1001TRKB",
+      "revision": "DCA8",
+      "capacity_bytes": "1000204886016",
+      "rotation_rate": "7200 rpm",
+      "type": "osd",
+      "osd_id": "osd.0"
+    },
+    {
+      "hostname": "burnupi01",
+      "dev_path": "/dev/sdi",
+      "vendor": "",
+      "product": "MZ-5S71000-0D3",
+      "revision": "VBC3CD3Q",
+      "capacity_bytes": "100030242816",
+      "rotation_rate": "Solid State Device",
+      "type": "osd",
+      "osd_id": "osd.9"
+    }
+  ],
+}
