@@ -11,7 +11,7 @@ In order to have your Ceph performance results included in this repository you n
  
 # What to submit
 A properly formatted submission should come in the format of a pull request with a named folder in the format of:
-* "[Date][Time][cluster_uuid]" 
+* "[Date]_[Time(HHMMSS)]_[cluster_uuid]" 
  
 Which should contain the following:
 * JSON file following the format of example.json
