@@ -1,12 +1,13 @@
 {
-  "cluter_uuid": "5e4eeae5-edf4-4d53-8ed5-5675207f9a35",
-  "date": "2014-05-04T20:00:34"
-  "submitter": {
-	  "person": "..."
-	  "company": "..."
-	  }
-  “note”: “a note about this test”
-  }
+  "information": {
+  	"cluter_uuid": "5e4eeae5-edf4-4d53-8ed5-5675207f9a35",
+  	"date": "2014-05-04T20:00:34",
+  	"submitter": {
+	  "person": "...",
+	  "company": "...",
+	},
+  	"note": "a note about this test",
+  },
   "platform": {
 	  "osds": 23,
 	  "osd_servers": 11,
@@ -15,27 +16,27 @@
 	  "cost_raw_tb": 23.3,
 	  "ceph_data_protection": "Rep 3x",
 	  "cost_usable_tb": 22.1,
-	  “v_fio”: 2.2.13,
-	  “v_sysbench”: 0.5,
-	  “v_radosbench”: 9.2.0,
-	  “v_collectl”: 4.0.2,
+	  "v_fio": "2.2.13",
+	  "v_sysbench": "0.5",
+	  "v_radosbench": "9.2.0",
+	  "v_collectl": "4.0.2",
   },
   "osd_servers": {
 	  "server_vendor": "Quanta QCT",
 	  "server_model": "21P-4U/Dual",
 	  "3_5_hdds_for_osds": 12,
-	  “2_5_hdds_for_osds”: 0,
-	  “2_5_ssds_for_osds”: 0,
-	  “nvme_for_osds”: 0,
-	  “journal_model”: “Intel DC P3700”,
-	  “CPU”: “E5-2650v3”,
-	  “CPU_sockets”: 2,
-	  “RAM_GB”: 128,
-	  “HBA/RAID”: “HBA”,
-	  “HBA/RAID_model”: “LSI SAS3018”,
-	  “Network_Interface”: “1x 40G Quanta mezz, MLNX”,
-	  “v_OS”: “RHEL 7.1”,
-	  “v_kernel”: “3.10.0-229.14.1.el7”,
+	  "2_5_hdds_for_osds": 0,
+	  "2_5_ssds_for_osds": 0,
+	  "nvme_for_osds": 0,
+	  "journal_model": "Intel DC P3700",
+	  "CPU": "E5-2650v3",
+	  "CPU_sockets": 2,
+	  "RAM_GB": 128,
+	  "HBA/RAID": "HBA",
+	  "HBA/RAID_model": "LSI SAS3018",
+	  "Network_Interface": "1x 40G Quanta mezz, MLNX",
+	  "v_OS": "RHEL 7.1",
+	  "v_kernel": "3.10.0-229.14.1.el7",
 	},
   "pools": [
   	{
@@ -56,71 +57,71 @@
 	  "pg_count": ,
   },
   "network": {
-	  “pub_network”: “10GB”,
-	  “cluster_network”: 40GB”,
+	  "pub_network": "10GB",
+	  "cluster_network": "40GB",
   },
   "clients": {
-	  “client_node_count”: 16,
-	  “Client_OS”: ,
-	  “client_vm_count”: ,
-	  “ceph_client”: “librados”,
+	  "client_node_count": 16,
+	  "Client_OS": ,
+	  "client_vm_count": ,
+	  "ceph_client": "librados",
   },
-  “load”: {
-	  “CBT”: “Y”,
-	  “load_test_util”: “rados bench”,
-	  “IO_queue_depth”: ,
+  "load": {
+	  "CBT": "Y",
+	  "load_test_util": "rados bench",
+	  "IO_queue_depth": ,
   },
   "publication": {
-	  “published”: “Y”,
-	  “publication_url”: “”,
+	  "published": "Y",
+	  "publication_url": "",
   },
-  “notes”: {
-	  “observations”: “insufficient quantities of clients to drive load”
+  "notes": {
+	  "observations": "insufficient quantities of clients to drive load"
   },
   "benchmarks": [
 	{
-  "suite": "CBT_Throughput-optimized"
+  	"suite": "CBT_Throughput-optimized",
 	    "kind": "4M Sequential Read",
 	    "mbsec_osd_device": 90,
 	    "cost_usable_tb_mbsec": 3.4,
-	    “mbsec_cluster”: 12540,
-	    “avg_latency”: 650,
-	    “95th_latency”: ,
+	    "mbsec_cluster": 12540,
+	    "avg_latency": 650,
+	    "95th_latency": ,
 	},
 	{
-  "suite": "CBT_Throughput-optimized"
+  	"suite": "CBT_Throughput-optimized",
 	    "kind": "4M Sequential Write",
 	    "mbsec_osd_device": 90,
 	    "cost_usable_tb_mbsec": 3.4,
-	    “mbsec_cluster”: 3324,
-	    “avg_latency”: 2480,
-	    “95th_latency”: ,
+	    "mbsec_cluster": 3324,
+	    "avg_latency": 2480,
+	    "95th_latency": ,
 	},
 	{
-  "suite": "CBT_IOPS-optimized"
+  	"suite": "CBT_IOPS-optimized",
 	    "kind": "4K Random Read",
-	    “iops_osd”: 57500,
-	    “cost_usable_tb_iop”: ,
-	    “iops_cluster”: 1150000,
-	    “avg_latency”: 1.1,
-	    “95th_latency”: 20.59,
+	    "iops_osd": 57500,
+	    "cost_usable_tb_iop": ,
+	    "iops_cluster": 1150000,
+	    "avg_latency": 1.1,
+	    "95th_latency": 20.59,
 	},
 	{
-  "suite": "CBT_IOPS-optimized"
+  	"suite": "CBT_IOPS-optimized",
 	    "kind": "4K Random Write",
-	    “iops_osd”: 8550,
-	    “cost_usable_tb_iop”: ,
-	    “iops_cluster”: 171000,
-	    “avg_latency”: 6,
-	    “95th_latency”: 127.69,
+	    "iops_osd": 8550,
+	    "cost_usable_tb_iop": ,
+	    "iops_cluster": 171000,
+	    "avg_latency": 6,
+	    "95th_latency": 127.69,
 	},
 	{
-	“suite”: “COSBench_object-optimized”
-	    ...TBD...
-  },
+	"suite": "COSBench_object-optimized",
+	    "kind": "Not yet implemented",
+  	},
 	{
-	“suite”: “CBT_DB-optimized”
-	    …TBD...
+	"suite": "CBT_DB-optimized",
+	    "kind": "Not yet implemented",
 	},
   ]
 }
