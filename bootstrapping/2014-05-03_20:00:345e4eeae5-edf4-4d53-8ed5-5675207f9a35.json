@@ -1,0 +1,100 @@
+{
+  "network": {
+    "cluster_network": "combined",
+    "pub_network": "4x10Gb (bonded)"
+  },
+  "benchmarks": [
+    {
+      "suite": "CBT_Throughput-optimized",
+      "95th_latency": NaN,
+      "avg_latency": 455,
+      "mbsec_cluster": 18000,
+      "mbsec_osd_device": 80,
+      "kind": "4M Sequential Read",
+      "cost_usable_tb_mbsec": NaN
+    },
+    {
+      "suite": "CBT_Throughput-optimized",
+      "95th_latency": NaN,
+      "avg_latency": 4311,
+      "mbsec_cluster": 4000,
+      "mbsec_osd_device": 18,
+      "kind": "4M Sequential Write",
+      "cost_usable_tb_mbsec": NaN
+    }
+  ],
+  "pools": [
+    {
+      "pool_name": "data",
+      "pool_size": 2,
+      "pool_pgpnum": 512,
+      "pool_id": 0
+    },
+    {
+      "pool_name": "ssd",
+      "pool_size": 1,
+      "pool_pgpnum": 512,
+      "pool_id": 32
+    }
+  ],
+  "load": {
+    "CBT": 1,
+    "load_test_util": "rados bench",
+    "IO_queue_depth": NaN,
+    "published": 1
+  },
+  "platform": {
+    "osd_devices": 224,
+    "v_collectl": "4.0.2",
+    "v_radosbench": "9.2.0",
+    "cost_raw_tb": NaN,
+    "v_fio": "2.2.13",
+    "osds": 224,
+    "osd_servers": 8,
+    "v_sysbench": "0.5",
+    "osd_media": "SAS HDD",
+    "cost_usable_tb": NaN,
+    "ceph_data_protection": "Rep 3x"
+  },
+  "information": {
+    "date": "2014-05-03T20:00:34",
+    "submitter": {
+      "company": "Cisco",
+      "person": "Ramakrishna"
+    },
+    "cluster_uuid": "5e4eeae5-edf4-4d53-8ed5-5675207f9a35"
+  },
+  "publication": {
+    "publication_url": "http://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/whitepaper-C11-735004.html"
+  },
+  "notes": {
+    "observations": NaN
+  },
+  "ceph": {
+    "pg_count": NaN,
+    "v_ceph": "RHCS 1.2.3"
+  },
+  "osd_servers": {
+    "2_5_hdds_for_osds": 0,
+    "CPU": "E5-2695v2",
+    "RAM_GB": 256,
+    "3_5_hdds_for_osds": 28,
+    "v_OS": "RHEL 7.1",
+    "v_kernel": NaN,
+    "nvme_for_osds": 0,
+    "2_5_ssds_for_osds": 0,
+    "journal_model": "n/a",
+    "HBA/RAID_model": "Mega RAID 12-Gbps",
+    "server_model": "C3160",
+    "server_vendor": "Cisco",
+    "HBA/RAID": "RAID",
+    "Network_Interface": "2x dual-port 10Gb UCS VIC 1227",
+    "CPU_sockets": 2
+  },
+  "clients": {
+    "client_vm_count": "n/a",
+    "ceph_client": "librados",
+    "Client_OS": NaN,
+    "client_node_count": 16
+  }
+}

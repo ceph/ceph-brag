@@ -1,0 +1,100 @@
+{
+  "network": {
+    "cluster_network": "10Gb",
+    "pub_network": "10Gb"
+  },
+  "benchmarks": [
+    {
+      "suite": "CBT_Throughput-optimized",
+      "95th_latency": NaN,
+      "avg_latency": 964,
+      "mbsec_cluster": 5275,
+      "mbsec_osd_device": 88,
+      "kind": "4M Sequential Read",
+      "cost_usable_tb_mbsec": NaN
+    },
+    {
+      "suite": "CBT_Throughput-optimized",
+      "95th_latency": NaN,
+      "avg_latency": 3911,
+      "mbsec_cluster": 1300,
+      "mbsec_osd_device": 22,
+      "kind": "4M Sequential Write",
+      "cost_usable_tb_mbsec": NaN
+    }
+  ],
+  "pools": [
+    {
+      "pool_name": "data",
+      "pool_size": 2,
+      "pool_pgpnum": 512,
+      "pool_id": 0
+    },
+    {
+      "pool_name": "ssd",
+      "pool_size": 1,
+      "pool_pgpnum": 512,
+      "pool_id": 32
+    }
+  ],
+  "load": {
+    "CBT": 1,
+    "load_test_util": "rados bench",
+    "IO_queue_depth": NaN,
+    "published": 0
+  },
+  "platform": {
+    "osd_devices": 60,
+    "v_collectl": "4.0.2",
+    "v_radosbench": "9.2.0",
+    "cost_raw_tb": NaN,
+    "v_fio": "2.2.13",
+    "osds": 60,
+    "osd_servers": 5,
+    "v_sysbench": "0.5",
+    "osd_media": "SAS HDD",
+    "cost_usable_tb": NaN,
+    "ceph_data_protection": "Rep 3x"
+  },
+  "information": {
+    "date": "2014-05-02T20:00:34",
+    "submitter": {
+      "company": "Red Hat",
+      "person": "Shankar"
+    },
+    "cluster_uuid": "5e4eeae5-edf4-4d53-8ed5-5675207f9a35"
+  },
+  "publication": {
+    "publication_url": NaN
+  },
+  "notes": {
+    "observations": NaN
+  },
+  "ceph": {
+    "pg_count": NaN,
+    "v_ceph": "RHCS 1.3"
+  },
+  "osd_servers": {
+    "2_5_hdds_for_osds": 0,
+    "CPU": "E5-2660v3",
+    "RAM_GB": 64,
+    "3_5_hdds_for_osds": 12,
+    "v_OS": NaN,
+    "v_kernel": "3.10.0-229.14.1.el7",
+    "nvme_for_osds": 0,
+    "2_5_ssds_for_osds": 0,
+    "journal_model": "Intel DC S3710 (200G)",
+    "HBA/RAID_model": "LSI SAS3008",
+    "server_model": "D51PH-1ULH",
+    "server_vendor": "Quanta QCT",
+    "HBA/RAID": "HBA",
+    "Network_Interface": "dual port 10G",
+    "CPU_sockets": 2
+  },
+  "clients": {
+    "client_vm_count": "n/a",
+    "ceph_client": "librados",
+    "Client_OS": NaN,
+    "client_node_count": 10
+  }
+}
