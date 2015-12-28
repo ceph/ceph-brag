@@ -6,8 +6,6 @@
 	  "person": "...",
 	  "company": "...",
 	},
-  	"note": "a note about this test",
-  },
   "platform": {
 	  "osds": 23,
 	  "osd_servers": 11,
@@ -57,22 +55,22 @@
 	  "pg_count": ,
   },
   "network": {
-	  "pub_network": "10GB",
-	  "cluster_network": "40GB",
+	  "pub_network": "10Gb",
+	  "cluster_network": "40Gb",
   },
   "clients": {
 	  "client_node_count": 16,
-	  "Client_OS": ,
+	  "client_OS": ,
 	  "client_vm_count": ,
 	  "ceph_client": "librados",
   },
   "load": {
-	  "CBT": "Y",
+	  "CBT": 1,
 	  "load_test_util": "rados bench",
 	  "IO_queue_depth": ,
   },
   "publication": {
-	  "published": "Y",
+	  "published": 1,
 	  "publication_url": "",
   },
   "notes": {
@@ -125,5 +123,3 @@
 	},
   ]
 }
-
-
