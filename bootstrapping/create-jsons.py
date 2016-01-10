@@ -7,7 +7,7 @@
 
 # First of all, read the csv file into a Pandas dataframe (just because it is convenient to later produce the JSON files).
 
-# In[97]:
+# In[2]:
 
 import pandas as pd
 
@@ -16,7 +16,7 @@ tests_df = pd.read_csv("ceph-tests-data.csv")
 
 # The function create_description produces a dictionary ready to be exported as a JSON file. It takes as arguments the data for one test (which correspons to one row in the CSV file), and an integer (which corresponds to the position of the row in the CSV file, starting with 0). The integer is used only for helping in producing the date (we don't have real dates in the CSV file).
 
-# In[98]:
+# In[3]:
 
 from collections import OrderedDict
 def create_description (test, order):
@@ -132,20 +132,20 @@ def create_description (test, order):
 
 # Function file_name produces a file name from the date and cluster_uuid in the description of a test.
 
-# In[99]:
+# In[4]:
 
 def file_name (description):
     """Produce the file name for a test description"""
 
     name = description["information"]["date"]
     name = name.replace("T", "_")
-    name = name + description["information"]["cluster_uuid"]
+    name = name + "_" + description["information"]["cluster_uuid"]
     return name
 
 
 # Now, the rest is simple. Just loop through all rows in the dataframe, produce a description (dictionary ready to be exported as JSON) for each of them, produce a file name for each of them, and then write the dictionary to the file.
 
-# In[100]:
+# In[5]:
 
 import json
 for index, row in tests_df.iterrows(): 
