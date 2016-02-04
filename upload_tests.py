@@ -26,8 +26,8 @@ Read JSOM files, each corresponding to a Ceph test, and upload to ElasticSearch.
 
 Example:
 
-python3 upload_tests.py --dir bootstrapping/ \\
-  --elasticsearch elastic-ceph.bitergia.com:80 ceph-tests --esauth ceph XXX
+python3 upload_tests.py --dir bootstrapping/ \
+  --elasticsearch http://elastic-ceph.bitergia.com:80 ceph-tests --esauth ceph XXX
 """
 
 import argparse
