@@ -1,100 +1,100 @@
 {
-  "publication": {
-    "publication_url": "http://www.redhat.com/en/resources/red-hat-ceph-storage-clusters-supermicro-storage-servers"
-  },
-  "ceph": {
-    "v_ceph": "RHCS 1.2.3",
-    "pg_count": NaN
-  },
-  "load": {
-    "load_test_util": "rados bench",
-    "published": 1,
-    "CBT": 1,
-    "IO_queue_depth": NaN
-  },
   "network": {
     "pub_network": "10Gb",
     "cluster_network": "10Gb"
   },
-  "information": {
-    "cluster_uuid": "5e4eeae5-edf4-4d53-8ed5-5675207f9a35",
-    "submitter": {
-      "person": "Bader",
-      "company": "Red Hat"
+  "pools": [
+    {
+      "pool_id": 0,
+      "pool_pgpnum": 512,
+      "pool_name": "data",
+      "pool_size": 2
     },
-    "date": "2014-05-05T20:00:34"
+    {
+      "pool_id": 32,
+      "pool_pgpnum": 512,
+      "pool_name": "ssd",
+      "pool_size": 1
+    }
+  ],
+  "publication": {
+    "publication_url": "http://www.redhat.com/en/resources/red-hat-ceph-storage-clusters-supermicro-storage-servers"
   },
   "benchmarks": [
     {
-      "mbsec_osd_device": 73,
-      "95th_latency": NaN,
-      "mbsec_cluster": 4406,
-      "avg_latency": 463,
       "suite": "CBT_Throughput-optimized",
+      "cost_usable_tb_mbsec": NaN,
       "kind": "4M Sequential Read",
-      "cost_usable_tb_mbsec": NaN
-    },
-    {
-      "mbsec_osd_device": 16,
+      "avg_latency": 920,
+      "mbsec_cluster": 4427,
       "95th_latency": NaN,
-      "mbsec_cluster": 943,
-      "avg_latency": 2169,
-      "suite": "CBT_Throughput-optimized",
-      "kind": "4M Sequential Write",
-      "cost_usable_tb_mbsec": NaN
-    }
-  ],
-  "platform": {
-    "v_radosbench": "9.2.0",
-    "osds": 60,
-    "osd_media": "SATA HDD",
-    "v_fio": "2.2.13",
-    "osd_devices": 60,
-    "cost_usable_tb": NaN,
-    "osd_servers": 5,
-    "cost_raw_tb": NaN,
-    "ceph_data_protection": "EC 3+2",
-    "v_collectl": "4.0.2",
-    "v_sysbench": "0.5"
-  },
-  "pools": [
-    {
-      "pool_size": 2,
-      "pool_pgpnum": 512,
-      "pool_name": "data",
-      "pool_id": 0
+      "mbsec_osd_device": 74
     },
     {
-      "pool_size": 1,
-      "pool_pgpnum": 512,
-      "pool_name": "ssd",
-      "pool_id": 32
+      "suite": "CBT_Throughput-optimized",
+      "cost_usable_tb_mbsec": NaN,
+      "kind": "4M Sequential Write",
+      "avg_latency": 2743,
+      "mbsec_cluster": 1487,
+      "95th_latency": NaN,
+      "mbsec_osd_device": 25
     }
   ],
+  "load": {
+    "load_test_util": "rados bench",
+    "CBT": 1,
+    "IO_queue_depth": NaN,
+    "published": 1
+  },
+  "ceph": {
+    "pg_count": NaN,
+    "v_ceph": "RHCS 1.2.3"
+  },
   "osd_servers": {
-    "2_5_ssds_for_osds": 0,
-    "v_OS": "RHEL 7.1",
-    "nvme_for_osds": 0,
-    "CPU_sockets": 1,
-    "server_vendor": "Supermicro",
-    "RAM_GB": 128,
     "v_kernel": "3.10.0-229.el7.x86_64",
     "3_5_hdds_for_osds": 12,
-    "server_model": "SSG-6028R-OSD072P",
+    "RAM_GB": 128,
+    "2_5_hdds_for_osds": 0,
+    "journal_model": "Intel DC P3700 (800GB)",
     "CPU": "E5-2630v2",
-    "Network_Interface": "dual-port 10G",
+    "nvme_for_osds": 0,
     "HBA/RAID": "HBA",
+    "server_model": "SSG-6028R-OSD072P",
+    "v_OS": "RHEL 7.1",
+    "Network_Interface": "dual-port 10G",
     "HBA/RAID_model": "LSI SAS2308",
-    "journal_model": "n/a",
-    "2_5_hdds_for_osds": 0
+    "2_5_ssds_for_osds": 0,
+    "CPU_sockets": 1,
+    "server_vendor": "Supermicro"
+  },
+  "platform": {
+    "v_fio": "2.2.13",
+    "osd_servers": 5,
+    "v_collectl": "4.0.2",
+    "osds": 60,
+    "v_sysbench": "0.5",
+    "osd_media": "SATA HDD",
+    "cost_raw_tb": NaN,
+    "ceph_data_protection": "Rep 3x",
+    "osd_devices": 60,
+    "v_radosbench": "9.2.0",
+    "cost_usable_tb": NaN
   },
   "notes": {
     "observations": NaN
   },
   "clients": {
-    "ceph_client": "librados",
+    "client_node_count": 8,
     "client_vm_count": "n/a",
     "Client_OS": NaN,
-    "client_node_count": 8
+    "ceph_client": "librados"
+  },
+  "information": {
+    "date": "2014-05-05T20:00:34",
+    "cluster_uuid": "5e4eeae5-edf4-4d53-8ed5-5675207f9a35",
+    "submitter": {
+      "person": "Bader",
+      "company": "Red Hat"
+    }
   }
 }

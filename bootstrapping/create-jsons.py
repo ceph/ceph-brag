@@ -7,16 +7,17 @@
 
 # First of all, read the csv file into a Pandas dataframe (just because it is convenient to later produce the JSON files).
 
-# In[2]:
+# In[23]:
 
 import pandas as pd
 
-tests_df = pd.read_csv("ceph-tests-data.csv")
+tests_4ms_df = pd.read_csv("ceph-tests-data-4ms.csv")
+tests_4kr_df = pd.read_csv("ceph-tests-data-4kr.csv")
 
 
-# The function create_description produces a dictionary ready to be exported as a JSON file. It takes as arguments the data for one test (which correspons to one row in the CSV file), and an integer (which corresponds to the position of the row in the CSV file, starting with 0). The integer is used only for helping in producing the date (we don't have real dates in the CSV file).
+# The function create_description produces a dictionary ready to be exported as a JSON file. It takes as arguments the data for one test (which correspons to one row in the CSV file), and an integer (which corresponds to the position of the row in the CSV file, starting with 0). The integer is used only for helping in producing the date (we don't have real dates in the CSV file). The data specific for the benchmarks is not produced here.
 
-# In[3]:
+# In[24]:
 
 from collections import OrderedDict
 def create_description (test, order):
@@ -107,7 +108,15 @@ def create_description (test, order):
     description["notes"] = {
         "observations": test["observations"]
     }
-    description["benchmarks"] = [
+    return description
+
+
+# create_benchmarks_4ms is a function for creating the benchmarks property of a description, when that information relates to 4M Sequential tests.
+
+# In[25]:
+
+def create_benchmarks_4ms (test):
+    benchmarks = [
         {
             "suite": "CBT_Throughput-optimized",
             "kind": "4M Sequential Read",
@@ -127,12 +136,40 @@ def create_description (test, order):
             "95th_latency": test["4MSW_latency_95"]
         }
     ]
-    return description
+    return benchmarks
+
+
+# create_benchmarks_4kr is a function for creating the benchmarks property of a description, when that information relates to 4K Random tests.
+
+# In[26]:
+
+def create_benchmarks_4kr (test):
+    benchmarks = [
+        {
+            "suite": "IOPS-optimized",
+            "kind": "4K Random Read",
+            "mbsec_osd_device": test["4KRR_IOPS_OSD"],
+            "cost_usable_tb_mbsec": test["4KRR_media_cost_IOP"],
+            "mbsec_cluster": test["4KRR_IOPS_cluster"],
+            "avg_latency": test["4KRR_latency_avg"],
+            "95th_latency": test["4KRR_latency_95"]
+        },
+        {
+            "suite": "IOPS-optimized",
+            "kind": "4K Random Write",
+            "mbsec_osd_device": test["4KRW_IOPS_OSD"],
+            "cost_usable_tb_mbsec": test["4KRW_media_cost_IOP"],
+            "mbsec_cluster": test["4KRW_IOPS_cluster"],
+            "avg_latency": test["4KRW_latency_avg"],
+            "95th_latency": test["4KRW_latency_95"]
+        }
+    ]
+    return benchmarks
 
 
 # Function file_name produces a file name from the date and cluster_uuid in the description of a test.
 
-# In[4]:
+# In[27]:
 
 def file_name (description):
     """Produce the file name for a test description"""
@@ -145,14 +182,25 @@ def file_name (description):
 
 # Now, the rest is simple. Just loop through all rows in the dataframe, produce a description (dictionary ready to be exported as JSON) for each of them, produce a file name for each of them, and then write the dictionary to the file.
 
-# In[5]:
+# In[28]:
 
 import json
-for index, row in tests_df.iterrows(): 
-    description = create_description(row, index)
-    name = file_name(description)
-    with open(name + ".json", 'w') as f:
-        json.dump(dict(description), f, ensure_ascii=False, indent=2)
+
+def create_json (df, benchmark_func, previous_id):
+    id = previous_id
+    for index, row in df.iterrows(): 
+        id = id + 1
+        description = create_description(row, id)
+        description["benchmarks"] = benchmark_func(row)
+        name = file_name(description) + ".json"
+        with open(name, 'w') as f:
+            print(name)
+            json.dump(dict(description), f, ensure_ascii=False, indent=2)
+    return (id)
+
+id = 0
+id = create_json(tests_4ms_df, create_benchmarks_4ms, id)
+id = create_json(tests_4kr_df, create_benchmarks_4kr, id)
 
 
 # In[ ]:

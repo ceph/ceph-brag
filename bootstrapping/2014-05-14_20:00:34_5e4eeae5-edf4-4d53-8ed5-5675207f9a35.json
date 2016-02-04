@@ -25,19 +25,19 @@
       "suite": "CBT_Throughput-optimized",
       "cost_usable_tb_mbsec": NaN,
       "kind": "4M Sequential Read",
-      "avg_latency": 336,
-      "mbsec_cluster": 6080,
+      "avg_latency": 843,
+      "mbsec_cluster": 2944,
       "95th_latency": NaN,
-      "mbsec_osd_device": 28
+      "mbsec_osd_device": 14
     },
     {
       "suite": "CBT_Throughput-optimized",
       "cost_usable_tb_mbsec": NaN,
       "kind": "4M Sequential Write",
-      "avg_latency": 1724,
-      "mbsec_cluster": 1302,
+      "avg_latency": 843,
+      "mbsec_cluster": 2427,
       "95th_latency": NaN,
-      "mbsec_osd_device": 6
+      "mbsec_osd_device": 11
     }
   ],
   "load": {
@@ -75,7 +75,7 @@
     "v_sysbench": "0.5",
     "osd_media": "SATA HDD",
     "cost_raw_tb": NaN,
-    "ceph_data_protection": "Rep 3x",
+    "ceph_data_protection": "EC 2+1",
     "osd_devices": 216,
     "v_radosbench": "9.2.0",
     "cost_usable_tb": NaN
@@ -90,7 +90,7 @@
     "ceph_client": "librados"
   },
   "information": {
-    "date": "2014-05-12T20:00:34",
+    "date": "2014-05-14T20:00:34",
     "cluster_uuid": "5e4eeae5-edf4-4d53-8ed5-5675207f9a35",
     "submitter": {
       "person": "Bader",
