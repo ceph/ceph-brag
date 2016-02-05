@@ -1,100 +1,100 @@
 {
-  "publication": {
-    "publication_url": "http://www.redhat.com/en/resources/red-hat-ceph-storage-clusters-supermicro-storage-servers"
-  },
-  "ceph": {
-    "v_ceph": "RHCS 1.2.3",
-    "pg_count": NaN
-  },
-  "load": {
-    "load_test_util": "rados bench",
-    "published": 1,
-    "CBT": 1,
-    "IO_queue_depth": NaN
-  },
   "network": {
-    "pub_network": "40Gb",
-    "cluster_network": "combined"
-  },
-  "information": {
-    "cluster_uuid": "5e4eeae5-edf4-4d53-8ed5-5675207f9a35",
-    "submitter": {
-      "person": "Bader",
-      "company": "Red Hat"
-    },
-    "date": "2014-05-13T20:00:34"
-  },
-  "benchmarks": [
-    {
-      "mbsec_osd_device": 14,
-      "95th_latency": NaN,
-      "mbsec_cluster": 2944,
-      "avg_latency": 843,
-      "suite": "CBT_Throughput-optimized",
-      "kind": "4M Sequential Read",
-      "cost_usable_tb_mbsec": NaN
-    },
-    {
-      "mbsec_osd_device": 11,
-      "95th_latency": NaN,
-      "mbsec_cluster": 2427,
-      "avg_latency": 843,
-      "suite": "CBT_Throughput-optimized",
-      "kind": "4M Sequential Write",
-      "cost_usable_tb_mbsec": NaN
-    }
-  ],
-  "platform": {
-    "v_radosbench": "9.2.0",
-    "osds": 216,
-    "osd_media": "SATA HDD",
-    "v_fio": "2.2.13",
-    "osd_devices": 216,
-    "cost_usable_tb": NaN,
-    "osd_servers": 3,
-    "cost_raw_tb": NaN,
-    "ceph_data_protection": "EC 2+1",
-    "v_collectl": "4.0.2",
-    "v_sysbench": "0.5"
+    "pub_network": "10Gb",
+    "cluster_network": "10Gb"
   },
   "pools": [
     {
-      "pool_size": 2,
+      "pool_id": 0,
       "pool_pgpnum": 512,
       "pool_name": "data",
-      "pool_id": 0
+      "pool_size": 2
     },
     {
-      "pool_size": 1,
+      "pool_id": 32,
       "pool_pgpnum": 512,
       "pool_name": "ssd",
-      "pool_id": 32
+      "pool_size": 1
     }
   ],
+  "publication": {
+    "publication_url": "http://www.redhat.com/en/resources/red-hat-ceph-storage-clusters-supermicro-storage-servers"
+  },
+  "benchmarks": [
+    {
+      "suite": "CBT_Throughput-optimized",
+      "cost_usable_tb_mbsec": NaN,
+      "kind": "4M Sequential Read",
+      "avg_latency": 910,
+      "mbsec_cluster": 4481,
+      "95th_latency": NaN,
+      "mbsec_osd_device": 25
+    },
+    {
+      "suite": "CBT_Throughput-optimized",
+      "cost_usable_tb_mbsec": NaN,
+      "kind": "4M Sequential Write",
+      "avg_latency": 1887,
+      "mbsec_cluster": 2162,
+      "95th_latency": NaN,
+      "mbsec_osd_device": 12
+    }
+  ],
+  "load": {
+    "load_test_util": "rados bench",
+    "CBT": 1,
+    "IO_queue_depth": NaN,
+    "published": 1
+  },
+  "ceph": {
+    "pg_count": NaN,
+    "v_ceph": "RHCS 1.2.3"
+  },
   "osd_servers": {
-    "2_5_ssds_for_osds": 0,
-    "v_OS": "RHEL 7.1",
-    "nvme_for_osds": 0,
-    "CPU_sockets": 2,
-    "server_vendor": "Supermicro",
-    "RAM_GB": 256,
     "v_kernel": "3.10.0-229.el7.x86_64",
-    "3_5_hdds_for_osds": 72,
-    "server_model": "SSG-6048R-OSD432",
-    "CPU": "EF-2697v2",
-    "Network_Interface": "1x 40G Mellanox Connect X-3",
-    "HBA/RAID": "HBA",
-    "HBA/RAID_model": "3x LSI SAS2308",
+    "3_5_hdds_for_osds": 36,
+    "RAM_GB": 128,
+    "2_5_hdds_for_osds": 0,
     "journal_model": "n/a",
-    "2_5_hdds_for_osds": 0
+    "CPU": "E5-2630v2",
+    "nvme_for_osds": 0,
+    "HBA/RAID": "HBA",
+    "server_model": "SSG-6048R-OSD216",
+    "v_OS": "RHEL 7.1",
+    "Network_Interface": "dual-port 10G (Intel 82599ES)",
+    "HBA/RAID_model": "2x LSI SAS2308",
+    "2_5_ssds_for_osds": 0,
+    "CPU_sockets": 2,
+    "server_vendor": "Supermicro"
+  },
+  "platform": {
+    "v_fio": "2.2.13",
+    "osd_servers": 5,
+    "v_collectl": "4.0.2",
+    "osds": 180,
+    "v_sysbench": "0.5",
+    "osd_media": "SATA HDD",
+    "cost_raw_tb": NaN,
+    "ceph_data_protection": "EC 3+2",
+    "osd_devices": 180,
+    "v_radosbench": "9.2.0",
+    "cost_usable_tb": NaN
   },
   "notes": {
     "observations": "insufficent quantity of clients to drive load"
   },
   "clients": {
-    "ceph_client": "librados",
+    "client_node_count": 8,
     "client_vm_count": "n/a",
     "Client_OS": NaN,
-    "client_node_count": 4
+    "ceph_client": "librados"
+  },
+  "information": {
+    "date": "2014-05-13T20:00:34",
+    "cluster_uuid": "5e4eeae5-edf4-4d53-8ed5-5675207f9a35",
+    "submitter": {
+      "person": "Bader",
+      "company": "Red Hat"
+    }
   }
 }

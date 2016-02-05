@@ -1,7 +1,7 @@
 {
   "network": {
-    "pub_network": "4x10Gb (bonded)",
-    "cluster_network": "combined"
+    "pub_network": NaN,
+    "cluster_network": NaN
   },
   "pools": [
     {
@@ -18,52 +18,52 @@
     }
   ],
   "publication": {
-    "publication_url": "http://www.cisco.com/c/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/whitepaper-C11-735004.html"
+    "publication_url": "https://www.youtube.com/watch?v=73w7JqU7lGM"
   },
   "benchmarks": [
     {
-      "suite": "CBT_Throughput-optimized",
+      "suite": "IOPS-optimized",
       "cost_usable_tb_mbsec": NaN,
-      "kind": "4M Sequential Read",
-      "avg_latency": 434,
-      "mbsec_cluster": 9800,
+      "kind": "4K Random Read",
+      "avg_latency": NaN,
+      "mbsec_cluster": "167,000",
       "95th_latency": NaN,
-      "mbsec_osd_device": 58
+      "mbsec_osd_device": "7,952"
     },
     {
-      "suite": "CBT_Throughput-optimized",
+      "suite": "IOPS-optimized",
       "cost_usable_tb_mbsec": NaN,
-      "kind": "4M Sequential Write",
-      "avg_latency": 2331,
-      "mbsec_cluster": 2500,
+      "kind": "4K Random Write",
+      "avg_latency": NaN,
+      "mbsec_cluster": "25,000",
       "95th_latency": NaN,
-      "mbsec_osd_device": 15
+      "mbsec_osd_device": "1,190"
     }
   ],
   "load": {
-    "load_test_util": "rados bench",
-    "CBT": 1,
+    "load_test_util": NaN,
+    "CBT": 0,
     "IO_queue_depth": NaN,
     "published": 1
   },
   "ceph": {
     "pg_count": NaN,
-    "v_ceph": "RHCS 1.2.3"
+    "v_ceph": NaN
   },
   "osd_servers": {
     "v_kernel": NaN,
-    "3_5_hdds_for_osds": 56,
+    "3_5_hdds_for_osds": 0,
     "RAM_GB": 256,
     "2_5_hdds_for_osds": 0,
     "journal_model": "n/a",
-    "CPU": "E5-2695v2",
+    "CPU": "E5-2680v3",
     "nvme_for_osds": 0,
-    "HBA/RAID": "RAID",
-    "server_model": "C3160",
-    "v_OS": "RHEL 7.1",
-    "Network_Interface": "2x dual-port 10Gb UCS VIC 1227",
-    "HBA/RAID_model": "Mega RAID 12-Gbps",
-    "2_5_ssds_for_osds": 0,
+    "HBA/RAID": NaN,
+    "server_model": "C220",
+    "v_OS": NaN,
+    "Network_Interface": NaN,
+    "HBA/RAID_model": NaN,
+    "2_5_ssds_for_osds": 7,
     "CPU_sockets": 2,
     "server_vendor": "Cisco"
   },
@@ -71,12 +71,12 @@
     "v_fio": "2.2.13",
     "osd_servers": 3,
     "v_collectl": "4.0.2",
-    "osds": 168,
+    "osds": 21,
     "v_sysbench": "0.5",
-    "osd_media": "SAS HDD",
+    "osd_media": "SAS SSD",
     "cost_raw_tb": NaN,
     "ceph_data_protection": "Rep 3x",
-    "osd_devices": 168,
+    "osd_devices": 21,
     "v_radosbench": "9.2.0",
     "cost_usable_tb": NaN
   },
@@ -84,13 +84,13 @@
     "observations": NaN
   },
   "clients": {
-    "client_node_count": 16,
-    "client_vm_count": "n/a",
+    "client_node_count": NaN,
+    "client_vm_count": NaN,
     "Client_OS": NaN,
-    "ceph_client": "librados"
+    "ceph_client": NaN
   },
   "information": {
-    "date": "2014-05-07T20:00:34",
+    "date": "2014-05-16T20:00:34",
     "cluster_uuid": "5e4eeae5-edf4-4d53-8ed5-5675207f9a35",
     "submitter": {
       "person": "Ramakrishna",
