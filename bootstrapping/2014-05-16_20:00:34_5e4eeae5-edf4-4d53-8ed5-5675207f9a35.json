@@ -26,18 +26,18 @@
       "cost_usable_tb_mbsec": NaN,
       "kind": "4K Random Read",
       "avg_latency": NaN,
-      "mbsec_cluster": "167,000",
+      "mbsec_cluster": 167000,
       "95th_latency": NaN,
-      "mbsec_osd_device": "7,952"
+      "mbsec_osd_device": 7952
     },
     {
       "suite": "IOPS-optimized",
       "cost_usable_tb_mbsec": NaN,
       "kind": "4K Random Write",
       "avg_latency": NaN,
-      "mbsec_cluster": "25,000",
+      "mbsec_cluster": 25000,
       "95th_latency": NaN,
-      "mbsec_osd_device": "1,190"
+      "mbsec_osd_device": 1190
     }
   ],
   "load": {
