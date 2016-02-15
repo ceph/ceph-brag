@@ -22,7 +22,7 @@
 ##
 
 description = """
-Read JSOM files, each corresponding to a Ceph test, and upload to ElasticSearch.
+Read JSON files, each corresponding to a Ceph test, and upload to ElasticSearch.
 
 Example:
 
@@ -77,8 +77,17 @@ def read_tests (dir):
             tests[name] = data
     return tests
 
+Results = Object(
+    properties = {
+        "mbsec_osd_device": Integer(),
+        "cost_usable_tb_mbsec": Float(),
+        "mbsec_cluster": Float(),
+        #"latency_avg": Float()
+        })
+
 class Test(DocType):
     Id = String(index='not_analyzed')
+    Suite = String(index='not_analyzed')
     Config = String(index='not_analyzed')
     Test_no = Integer()
     Author = String(index='not_analyzed')
@@ -89,27 +98,32 @@ class Test(DocType):
     OSD_Media = String(index='not_analyzed')
     #cost_raw_tb = Float()
     Data_Protection = String(index='not_analyzed')
+    Suite = String(index='not_analyzed')
     #cost_usable_tb = Float()
-    Seq_Read_4M = Object(
-        properties = {
-            "MB/sec_per_OSD_Device": Integer(),
-            "Cost_TB_per_MB/sec": Float(),
-            "MB/sec_per_Cluster": Integer()
-        }
-    )
-    fourMSR_mbsec_osd_device = Integer()
-    fourMSR_cost_usable_tb_mbsec = Float()
-    fourMSR_mbsec_cluster = Float()
-    fourMSR_latency_avg = Float()
-    #fourMSR_latency_95 = Float()
-    fourMSW_mbsec_osd_device = Integer()
-    fourMSW_cost_usable_tb_mbsec = Float()
-    fourMSW_mbsec_cluster = Float()
-    fourMSW_latency_avg = Float()
-    #fourMSW_latency_95 = Float()
 
     class Meta:
         index = 'ceph-tests'
+
+class Test_Sequential(Test):
+    Seq_Read_4M = Results
+    Seq_Write_4M = Results
+
+class Test_Random(Test):
+    Rand_Read_4K = Results
+    Rand_Write_4K = Results
+
+def benchmark_results (benchmark):
+    """Produce a Seq_Results object from a benchmark dictionary.
+
+    """
+    results = {}
+    results["mbsec_osd_device"] = benchmark["mbsec_osd_device"]
+    if "cost_usable_tb_mbsec" in results:
+        results["cost_usable_tb_mbsec"] = float(benchmark["cost_usable_tb_mbsec"])
+    results["mbsec_cluster"] = float(benchmark["mbsec_cluster"])
+    if "latency_avg" in results:
+        results["latency_avg"] = float(benchmark["latency_avg"])
+    return results
 
 def upload_elasticsearch (tests, es_server, es_auth):
     """Upload to ElasticSearch.
@@ -124,30 +138,37 @@ def upload_elasticsearch (tests, es_server, es_auth):
                                 http_auth=[es_auth[0], es_auth[1]])
     index = Index (es_server[1])
     index.delete(ignore = 404)
-    Test.init()
+    Test_Sequential.init()
     cont = 0
     for name, data in tests.items():
         cont = cont + 1
+        config = str(data["platform"]["osds"]) + "/" \
+            + data["platform"]["osd_media"] + "/" \
+            + data["platform"]["ceph_data_protection"]
         for benchmark in data["benchmarks"]:
             if benchmark["suite"] == "CBT_Throughput-optimized":
+                suite = "CBT Throughput optimized"
                 if benchmark["kind"] == "4M Sequential Read":
-                    Seq_Read_4M = {}
-                    Seq_Read_4M["MB/sec_per_OSD_Device"] = benchmark["mbsec_osd_device"]
-                    Seq_Read_4M["Cost_TB_per_MB/sec"] = float(benchmark["mbsec_cluster"])
-                    Seq_Read_4M["MB/sec_per_Cluster"] = benchmark["avg_latency"]
+                    Seq_Read_4M = benchmark_results (benchmark)
                     fourMSR_mbsec_osd_device = benchmark["mbsec_osd_device"]
                     fourMSR_mbsec_cluster = float(benchmark["mbsec_cluster"])
                     fourMSR_latency_avg = benchmark["avg_latency"]
                 elif benchmark["kind"] == "4M Sequential Write":
+                    Seq_Write_4M = benchmark_results (benchmark)
                     fourMSW_mbsec_osd_device = benchmark["mbsec_osd_device"]
                     fourMSW_mbsec_cluster = float(benchmark["mbsec_cluster"])
                     fourMSW_latency_avg = benchmark["avg_latency"]
-        config = str(data["platform"]["osds"]) + "/" \
-            + data["platform"]["osd_media"] + "/" \
-            + data["platform"]["ceph_data_protection"]
-        test = Test (
+            elif benchmark["suite"] == "IOPS-optimized":
+                suite = "IOPS optimized"
+                if benchmark["kind"] == "4K Random Read":
+                    Rand_Read_4K = benchmark_results (benchmark)
+                elif benchmark["kind"] == "4K Random Write":
+                    Rand_Write_4K = benchmark_results (benchmark)
+        if suite == "CBT Throughput optimized":
+            test = Test_Sequential (
                  meta={'id': name},
                  Id = name,
+                 Suite = suite,
                  Config = config,
                  Test_no = cont,
                  Author = data["information"]["submitter"]["person"],
@@ -159,18 +180,28 @@ def upload_elasticsearch (tests, es_server, es_auth):
                  #cost_raw_tb = data["cost_raw_tb"],
                  Data_Protection = data["platform"]["ceph_data_protection"],
                  #cost_usable_tb = data["cost_usable_tb"],
-                 Seq_Read_4M = Seq_Read_4M,
-                 fourMSR_mbsec_osd_device = fourMSR_mbsec_osd_device,
-                 #fourMSR_cost_usable_tb_mbsec = data["4MSR_cost_usable_tb_mbsec"],
-                 fourMSR_mbsec_cluster = fourMSR_mbsec_cluster,
-                 fourMSR_latency_avg = fourMSR_latency_avg,
-                 #fourMSR_latency_95 = data["4MSR_latency_95"],
-                 fourMSW_mbsec_osd_device = fourMSW_mbsec_osd_device,
-                 #fourMSW_cost_usable_tb_mbsec = data["4MSW_cost_usable_tb_mbsec"],
-                 fourMSW_mbsec_cluster = fourMSW_mbsec_cluster,
-                 fourMSW_latency_avg = fourMSW_latency_avg,
-                 #fourMSW_latency_95 = data["4MSW_latency_95"]
                 )
+            test.Seq_Read_4M = Seq_Read_4M
+            test.Seq_Write_4M = Seq_Write_4M
+        elif suite == "IOPS optimized":
+            test = Test_Random (
+                 meta={'id': name},
+                 Id = name,
+                 Suite = suite,
+                 Config = config,
+                 Test_no = cont,
+                 Author = data["information"]["submitter"]["person"],
+                 Company = data["information"]["submitter"]["company"],
+                 OSD_Servers = data["platform"]["osd_servers"],
+                 OSDs = data["platform"]["osds"],
+                 OSD_Devices = data["platform"]["osd_devices"],
+                 OSD_Media = data["platform"]["osd_media"],
+                 #cost_raw_tb = data["cost_raw_tb"],
+                 Data_Protection = data["platform"]["ceph_data_protection"],
+                 #cost_usable_tb = data["cost_usable_tb"],
+                )
+            test.Rand_Read_4K = Rand_Read_4K
+            test.Rand_Write_4K = Rand_Write_4K
         #test.meta.id = name
         print(test)
         test.save()

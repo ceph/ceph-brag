@@ -1,0 +1,374 @@
+[
+  {
+    "_id": "Simple",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Simple",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Banner\",\"panelIndex\":1,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"4M-Seq.-Read-Performance-(MB-slash-sec)\",\"panelIndex\":2,\"row\":1,\"size_x\":4,\"size_y\":3,\"title\":\"Top Seq. Read Performance Results (MB/sec)\",\"type\":\"visualization\"},{\"col\":5,\"id\":\"4M-Seq.-Write-Performance-(MB-slash-sec)\",\"panelIndex\":3,\"row\":4,\"size_x\":4,\"size_y\":3,\"title\":\"Top Seq. Write Performance Results (MB/sec)\",\"type\":\"visualization\"},{\"col\":9,\"id\":\"4M-Seq.-Read-Performance-(MB-slash-sec)-by-Config\",\"panelIndex\":4,\"row\":1,\"size_x\":4,\"size_y\":3,\"title\":\"Top Seq. Read Performance Results (MB/sec)\",\"type\":\"visualization\"},{\"col\":9,\"id\":\"4M-Seq.-Write-Performance-(MB-slash-sec)-by-Config\",\"panelIndex\":5,\"row\":4,\"size_x\":4,\"size_y\":3,\"title\":\"Top Seq. Write Performance Results (MB/sec)\",\"type\":\"visualization\"},{\"col\":1,\"id\":\"Test-count-per-#OSD-Devices\",\"panelIndex\":7,\"row\":6,\"size_x\":4,\"size_y\":2,\"title\":\"# of OSD Devices in Result Submissions\",\"type\":\"visualization\"},{\"col\":1,\"id\":\"Data-Protection\",\"panelIndex\":8,\"row\":8,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"OSD-Media\",\"panelIndex\":9,\"row\":10,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"4M-Seq.-Read-per-#OSDs\",\"panelIndex\":11,\"row\":7,\"size_x\":4,\"size_y\":5,\"title\":\"MB/sec per OSD v. #OSDs in test (Read)\",\"type\":\"visualization\"},{\"col\":9,\"id\":\"4M-Seq.-Write-per-#OSDs\",\"panelIndex\":12,\"row\":7,\"size_x\":4,\"size_y\":5,\"title\":\"MB/sec per OSD vs #OSDs in test (Write)\",\"type\":\"visualization\"},{\"col\":1,\"id\":\"Test-count-per-#OSDs\",\"panelIndex\":13,\"row\":4,\"size_x\":4,\"size_y\":2,\"title\":\"# of OSDs in Results Submissions\",\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"Test_no\",\"Config\",\"Author\",\"Company\",\"Id\",\"Seq_Read_4M.Cost_TB_per_MB/sec\",\"Seq_Read_4M.MB/sec_per_Cluster\",\"Seq_Read_4M.MB/sec_per_OSD_Device\",\"OSD_Servers\",\"Seq_Read_4M.mbsec_osd_device\",\"Seq_Write_4M.mbsec_osd_device\",\"Rand_Read_4K.mbsec_osd_device\",\"Rand_Write_4K.mbsec_osd_device\",\"Data_Protection\",\"OSD_Devices\",\"OSDs\"],\"id\":\"Ceph-Tests\",\"panelIndex\":14,\"row\":15,\"size_x\":12,\"size_y\":4,\"sort\":[\"_score\",\"desc\"],\"title\":\"Raw information about tests\",\"type\":\"search\"},{\"col\":1,\"id\":\"Sequential-Tests\",\"panelIndex\":15,\"row\":12,\"size_x\":12,\"size_y\":3,\"type\":\"visualization\"}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-11\":{\"title\":\"MB/sec per OSD v. #OSDs in test (Read)\",\"vis\":{\"legendOpen\":false}},\"P-12\":{\"title\":\"MB/sec per OSD vs #OSDs in test (Write)\",\"vis\":{\"legendOpen\":false}},\"P-13\":{\"title\":\"# of OSDs in Results Submissions\"},\"P-14\":{\"title\":\"Raw information about tests\"},\"P-2\":{\"title\":\"Top Seq. Read Performance Results (MB/sec)\"},\"P-3\":{\"title\":\"Top Seq. Write Performance Results (MB/sec)\"},\"P-4\":{\"title\":\"Top Seq. Read Performance Results (MB/sec)\"},\"P-5\":{\"title\":\"Top Seq. Write Performance Results (MB/sec)\"},\"P-6\":{\"title\":\"# of OSDs in Results Submissions\"},\"P-7\":{\"title\":\"# of OSD Devices in Result Submissions\"}}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"meta\":{\"negate\":false,\"index\":\"ceph-tests\",\"key\":\"Suite\",\"value\":\"CBT Throughput optimized\",\"disabled\":false,\"alias\":\"CBT Throughput optimized\"},\"query\":{\"match\":{\"Suite\":{\"query\":\"CBT Throughput optimized\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}},{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Simple-Sequential",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Simple Sequential",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Banner\",\"panelIndex\":1,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"4M-Seq.-Read-Performance-(MB-slash-sec)\",\"panelIndex\":2,\"row\":1,\"size_x\":4,\"size_y\":3,\"title\":\"Top Seq. Read Performance Results (MB/sec)\",\"type\":\"visualization\"},{\"col\":5,\"id\":\"4M-Seq.-Write-Performance-(MB-slash-sec)\",\"panelIndex\":3,\"row\":4,\"size_x\":4,\"size_y\":3,\"title\":\"Top Seq. Write Performance Results (MB/sec)\",\"type\":\"visualization\"},{\"col\":9,\"id\":\"4M-Seq.-Read-Performance-(MB-slash-sec)-by-Config\",\"panelIndex\":4,\"row\":1,\"size_x\":4,\"size_y\":3,\"title\":\"Top Seq. Read Performance Results (MB/sec)\",\"type\":\"visualization\"},{\"col\":9,\"id\":\"4M-Seq.-Write-Performance-(MB-slash-sec)-by-Config\",\"panelIndex\":5,\"row\":4,\"size_x\":4,\"size_y\":3,\"title\":\"Top Seq. Write Performance Results (MB/sec)\",\"type\":\"visualization\"},{\"col\":1,\"id\":\"Test-count-per-#OSD-Devices\",\"panelIndex\":7,\"row\":6,\"size_x\":4,\"size_y\":2,\"title\":\"# of OSD Devices in Result Submissions\",\"type\":\"visualization\"},{\"col\":1,\"id\":\"Data-Protection\",\"panelIndex\":8,\"row\":8,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"OSD-Media\",\"panelIndex\":9,\"row\":10,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"4M-Seq.-Read-per-#OSDs\",\"panelIndex\":11,\"row\":7,\"size_x\":4,\"size_y\":5,\"title\":\"MB/sec per OSD v. #OSDs in test (Read)\",\"type\":\"visualization\"},{\"col\":9,\"id\":\"4M-Seq.-Write-per-#OSDs\",\"panelIndex\":12,\"row\":7,\"size_x\":4,\"size_y\":5,\"title\":\"MB/sec per OSD vs #OSDs in test (Write)\",\"type\":\"visualization\"},{\"col\":1,\"id\":\"Test-count-per-#OSDs\",\"panelIndex\":13,\"row\":4,\"size_x\":4,\"size_y\":2,\"title\":\"# of OSDs in Results Submissions\",\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"Test_no\",\"Config\",\"Author\",\"Company\",\"Id\",\"Seq_Read_4M.Cost_TB_per_MB/sec\",\"Seq_Read_4M.MB/sec_per_Cluster\",\"Seq_Read_4M.MB/sec_per_OSD_Device\",\"OSD_Servers\",\"Seq_Read_4M.mbsec_osd_device\",\"Seq_Write_4M.mbsec_osd_device\",\"Rand_Read_4K.mbsec_osd_device\",\"Rand_Write_4K.mbsec_osd_device\",\"Data_Protection\",\"OSD_Devices\",\"OSDs\"],\"id\":\"Ceph-Tests\",\"panelIndex\":14,\"row\":15,\"size_x\":12,\"size_y\":3,\"sort\":[\"_score\",\"desc\"],\"title\":\"Raw information about tests\",\"type\":\"search\"},{\"col\":1,\"id\":\"Sequential-Tests\",\"panelIndex\":15,\"row\":12,\"size_x\":12,\"size_y\":3,\"type\":\"visualization\"}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-11\":{\"title\":\"MB/sec per OSD v. #OSDs in test (Read)\",\"vis\":{\"legendOpen\":false}},\"P-12\":{\"title\":\"MB/sec per OSD vs #OSDs in test (Write)\",\"vis\":{\"legendOpen\":false}},\"P-13\":{\"title\":\"# of OSDs in Results Submissions\"},\"P-14\":{\"title\":\"Raw information about tests\"},\"P-2\":{\"title\":\"Top Seq. Read Performance Results (MB/sec)\"},\"P-3\":{\"title\":\"Top Seq. Write Performance Results (MB/sec)\"},\"P-4\":{\"title\":\"Top Seq. Read Performance Results (MB/sec)\"},\"P-5\":{\"title\":\"Top Seq. Write Performance Results (MB/sec)\"},\"P-6\":{\"title\":\"# of OSDs in Results Submissions\"},\"P-7\":{\"title\":\"# of OSD Devices in Result Submissions\"}}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":\"CBT Throughput optimized\",\"disabled\":false,\"index\":\"ceph-tests\",\"key\":\"Suite\",\"negate\":false,\"value\":\"CBT Throughput optimized\"},\"query\":{\"match\":{\"Suite\":{\"query\":\"CBT Throughput optimized\",\"type\":\"phrase\"}}}},{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Simple-Random",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Simple Random",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Banner\",\"panelIndex\":1,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Test-count-per-#OSD-Devices\",\"panelIndex\":7,\"row\":6,\"size_x\":4,\"size_y\":2,\"title\":\"# of OSD Devices in Result Submissions\",\"type\":\"visualization\"},{\"col\":1,\"id\":\"Data-Protection\",\"panelIndex\":8,\"row\":8,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"OSD-Media\",\"panelIndex\":9,\"row\":10,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Test-count-per-#OSDs\",\"panelIndex\":13,\"row\":4,\"size_x\":4,\"size_y\":2,\"title\":\"# of OSDs in Results Submissions\",\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"Test_no\",\"Config\",\"Author\",\"Company\",\"Id\",\"Seq_Read_4M.Cost_TB_per_MB/sec\",\"Seq_Read_4M.MB/sec_per_Cluster\",\"Seq_Read_4M.MB/sec_per_OSD_Device\",\"OSD_Servers\",\"Seq_Read_4M.mbsec_osd_device\",\"Seq_Write_4M.mbsec_osd_device\",\"Rand_Read_4K.mbsec_osd_device\",\"Rand_Write_4K.mbsec_osd_device\",\"Data_Protection\",\"OSD_Devices\",\"OSDs\"],\"id\":\"Ceph-Tests\",\"panelIndex\":14,\"row\":15,\"size_x\":12,\"size_y\":3,\"sort\":[\"_score\",\"desc\"],\"title\":\"Raw information about tests\",\"type\":\"search\"},{\"col\":5,\"id\":\"4K-Rand.-Read-Performance-(MB-slash-sec)\",\"panelIndex\":16,\"row\":1,\"size_x\":4,\"size_y\":3,\"title\":\"Top Rand. Read Performance Results (MB/sec)\",\"type\":\"visualization\"},{\"col\":9,\"id\":\"4K-Rand.-Read-Performance-(MB-slash-sec)-by-Config\",\"panelIndex\":17,\"row\":1,\"size_x\":4,\"size_y\":3,\"title\":\"Top Rand. Read Performance Results (MB/sec)\",\"type\":\"visualization\"},{\"col\":5,\"id\":\"4K-Rand.-Write-Performance-(MB-slash-sec)\",\"panelIndex\":18,\"row\":4,\"size_x\":4,\"size_y\":3,\"title\":\"Top Rand. Write Performance Results (MB/sec)\",\"type\":\"visualization\"},{\"col\":9,\"id\":\"4K-Rand.-Write-Performance-(MB-slash-sec)-by-Config\",\"panelIndex\":19,\"row\":4,\"size_x\":4,\"size_y\":3,\"title\":\"Top Rand. Write Performance Results (MB/sec)\",\"type\":\"visualization\"},{\"col\":5,\"id\":\"4K-Rand.-Read-per-#OSD\",\"panelIndex\":20,\"row\":7,\"size_x\":4,\"size_y\":5,\"title\":\"MB/sec per OSD vs #OSD in test (Read)\",\"type\":\"visualization\"},{\"col\":9,\"id\":\"4K-Rand.-Write-per-#OSDs\",\"panelIndex\":21,\"row\":7,\"size_x\":4,\"size_y\":5,\"title\":\"MB/sec per OSD vs #OSDs in test (Write)\",\"type\":\"visualization\"},{\"id\":\"Random-Tests\",\"type\":\"visualization\",\"panelIndex\":22,\"size_x\":12,\"size_y\":3,\"col\":1,\"row\":12}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-13\":{\"title\":\"# of OSDs in Results Submissions\"},\"P-14\":{\"title\":\"Raw information about tests\"},\"P-16\":{\"title\":\"Top Rand. Read Performance Results (MB/sec)\"},\"P-17\":{\"title\":\"Top Rand. Read Performance Results (MB/sec)\"},\"P-18\":{\"title\":\"Top Rand. Write Performance Results (MB/sec)\"},\"P-19\":{\"title\":\"Top Rand. Write Performance Results (MB/sec)\"},\"P-20\":{\"title\":\"MB/sec per OSD vs #OSD in test (Read)\"},\"P-21\":{\"title\":\"MB/sec per OSD vs #OSDs in test (Write)\"},\"P-6\":{\"title\":\"# of OSDs in Results Submissions\"},\"P-7\":{\"title\":\"# of OSD Devices in Result Submissions\"}}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":\"IOPS optimized\",\"disabled\":false,\"index\":\"ceph-tests\",\"key\":\"Suite\",\"negate\":false,\"value\":\"IOPS optimized\"},\"query\":{\"match\":{\"Suite\":{\"query\":\"IOPS optimized\",\"type\":\"phrase\"}}}},{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Ceph-Tests",
+    "_type": "search",
+    "_source": {
+      "title": "Ceph Tests",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "Test_no",
+        "Config",
+        "Author",
+        "Company",
+        "Id",
+        "Seq_Read_4M.Cost_TB_per_MB/sec",
+        "Seq_Read_4M.MB/sec_per_Cluster",
+        "Seq_Read_4M.MB/sec_per_OSD_Device",
+        "OSD_Servers",
+        "Seq_Read_4M.mbsec_osd_device",
+        "Seq_Write_4M.mbsec_osd_device",
+        "Rand_Read_4K.mbsec_osd_device",
+        "Rand_Write_4K.mbsec_osd_device",
+        "Data_Protection",
+        "OSD_Devices",
+        "OSDs",
+        "Suite",
+        "OSD_Media"
+      ],
+      "sort": [
+        "_score",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"ceph-tests\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Data-Protection",
+    "_type": "visualization",
+    "_source": {
+      "title": "Data Protection",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Data_Protection\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "OSD-Media",
+    "_type": "visualization",
+    "_source": {
+      "title": "OSD Media",
+      "visState": "{\"title\":\"Data Protection\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"OSD_Media\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Test-count-per-#OSD-Devices",
+    "_type": "visualization",
+    "_source": {
+      "title": "Test count per #OSD Devices",
+      "visState": "{\"title\":\"Test count per #OSD Devices\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"# of submissions\"}},{\"id\":\"2\",\"type\":\"histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"OSD_Devices\",\"interval\":50,\"extended_bounds\":{},\"customLabel\":\"Number of OSD devices (histogram)\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Test-count-per-#OSDs",
+    "_type": "visualization",
+    "_source": {
+      "title": "Test count per #OSDs",
+      "visState": "{\"title\":\"Test count per #OSDs\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"# of submissions\"}},{\"id\":\"2\",\"type\":\"histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"OSDs\",\"interval\":50,\"extended_bounds\":{},\"customLabel\":\"Number of OSDs (histogram)\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "4M-Seq.-Read-Performance-(MB-slash-sec)",
+    "_type": "visualization",
+    "_source": {
+      "title": "4M Seq. Read Performance (MB/sec)",
+      "visState": "{\"aggs\":[{\"id\":\"1\",\"params\":{\"customLabel\":\"MB/sec per OSD\",\"field\":\"Seq_Read_4M.mbsec_osd_device\"},\"schema\":\"metric\",\"type\":\"avg\"},{\"id\":\"2\",\"params\":{\"customLabel\":\"Test id\",\"field\":\"Test_no\",\"order\":\"desc\",\"orderBy\":\"1\",\"size\":15},\"schema\":\"segment\",\"type\":\"terms\"}],\"listeners\":{},\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"times\":[],\"yAxis\":{}},\"title\":\"4M Seq. Read Performance (MB/sec)\",\"type\":\"histogram\"}",
+      "uiStateJSON": "{\"P-11\":{\"title\":\"MB/sec per OSD v. #OSDs in test (Read)\",\"vis\":{\"legendOpen\":false}},\"P-12\":{\"title\":\"MB/sec per OSD vs #OSDs in test (Write)\",\"vis\":{\"legendOpen\":false}},\"P-13\":{\"title\":\"# of OSDs in Results Submissions\"},\"P-2\":{\"title\":\"Top Seq. Read Performance Results (MB/sec)\"},\"P-3\":{\"title\":\"Top Seq. Write Performance Results (MB/sec)\"},\"P-4\":{\"title\":\"Top Seq. Read Performance Results (MB/sec)\"},\"P-5\":{\"title\":\"Top Seq. Write Performance Results (MB/sec)\"},\"P-6\":{\"title\":\"# of OSDs in Results Submissions\"},\"P-7\":{\"title\":\"# of OSD Devices in Result Submissions\"},\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "4M-Seq.-Read-per-#OSDs",
+    "_type": "visualization",
+    "_source": {
+      "title": "4M Seq. Read per #OSDs",
+      "visState": "{\"title\":\"4M Seq. Read per #OSDs\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":false,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Seq_Read_4M.mbsec_osd_device\",\"customLabel\":\"MB/sec per OSD\"}},{\"id\":\"2\",\"type\":\"count\",\"schema\":\"radius\",\"params\":{\"customLabel\":\"Number of tests\"}},{\"id\":\"3\",\"type\":\"histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"OSDs\",\"interval\":50,\"extended_bounds\":{},\"customLabel\":\"#OSDs in test\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"Config\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"OSDs/media/protection\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":true}}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "4M-Seq.-Write-per-#OSDs",
+    "_type": "visualization",
+    "_source": {
+      "title": "4M Seq. Write per #OSDs",
+      "visState": "{\"title\":\"4M Seq. Write per #OSDs\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":false,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Seq_Write_4M.mbsec_osd_device\",\"customLabel\":\"MB/sec per OSD\"}},{\"id\":\"2\",\"type\":\"count\",\"schema\":\"radius\",\"params\":{}},{\"id\":\"3\",\"type\":\"histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"OSDs\",\"interval\":50,\"extended_bounds\":{},\"customLabel\":\"#OSDs in test\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"Config\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":true}}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "4M-Seq.-Write-Performance-(MB-slash-sec)",
+    "_type": "visualization",
+    "_source": {
+      "title": "4M Seq. Write Performance (MB/sec)",
+      "visState": "{\"title\":\"4M Seq. Write Performance (MB/sec)\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Seq_Write_4M.mbsec_osd_device\",\"customLabel\":\"MB/sec per OSD\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Test_no\",\"size\":15,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Test id\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "4M-Seq.-Read-Performance-(MB-slash-sec)-by-Config",
+    "_type": "visualization",
+    "_source": {
+      "title": "4M Seq. Read Performance (MB/sec) by Config",
+      "visState": "{\"title\":\"4M Seq. Read Performance (MB/sec) by Config\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Seq_Read_4M.mbsec_osd_device\",\"customLabel\":\"MB/sec per OSD\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"Test_no\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Test id\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"Config\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"OSDs/media/protection\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "4K-Rand.-Write-Performance-(MB-slash-sec)",
+    "_type": "visualization",
+    "_source": {
+      "title": "4K Rand. Write Performance (MB/sec)",
+      "visState": "{\"title\":\"4K Rand. Read Performance (MB/sec)\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Rand_Write_4K.mbsec_osd_device\",\"customLabel\":\"MB/sec per OSD\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Test_no\",\"size\":15,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Test id\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"P-11\":{\"title\":\"MB/sec per OSD v. #OSDs in test (Read)\",\"vis\":{\"legendOpen\":false}},\"P-12\":{\"title\":\"MB/sec per OSD vs #OSDs in test (Write)\",\"vis\":{\"legendOpen\":false}},\"P-13\":{\"title\":\"# of OSDs in Results Submissions\"},\"P-2\":{\"title\":\"Top Seq. Read Performance Results (MB/sec)\"},\"P-3\":{\"title\":\"Top Seq. Write Performance Results (MB/sec)\"},\"P-4\":{\"title\":\"Top Seq. Read Performance Results (MB/sec)\"},\"P-5\":{\"title\":\"Top Seq. Write Performance Results (MB/sec)\"},\"P-6\":{\"title\":\"# of OSDs in Results Submissions\"},\"P-7\":{\"title\":\"# of OSD Devices in Result Submissions\"},\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "4K-Rand.-Read-Performance-(MB-slash-sec)",
+    "_type": "visualization",
+    "_source": {
+      "title": "4K Rand. Read Performance (MB/sec)",
+      "visState": "{\"title\":\"4M Rand. Read Performance (MB/sec)\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Rand_Read_4K.mbsec_osd_device\",\"customLabel\":\"MB/sec per OSD\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Test_no\",\"size\":15,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Test id\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"P-11\":{\"title\":\"MB/sec per OSD v. #OSDs in test (Read)\",\"vis\":{\"legendOpen\":false}},\"P-12\":{\"title\":\"MB/sec per OSD vs #OSDs in test (Write)\",\"vis\":{\"legendOpen\":false}},\"P-13\":{\"title\":\"# of OSDs in Results Submissions\"},\"P-2\":{\"title\":\"Top Seq. Read Performance Results (MB/sec)\"},\"P-3\":{\"title\":\"Top Seq. Write Performance Results (MB/sec)\"},\"P-4\":{\"title\":\"Top Seq. Read Performance Results (MB/sec)\"},\"P-5\":{\"title\":\"Top Seq. Write Performance Results (MB/sec)\"},\"P-6\":{\"title\":\"# of OSDs in Results Submissions\"},\"P-7\":{\"title\":\"# of OSD Devices in Result Submissions\"},\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Sequential-Tests",
+    "_type": "visualization",
+    "_source": {
+      "title": "Sequential Tests",
+      "visState": "{\"title\":\"Sequential Tests\",\"type\":\"table\",\"params\":{\"perPage\":20,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Seq_Read_4M.mbsec_osd_device\",\"customLabel\":\"4M Read (MB/sec per OSD device)\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"Test_no\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Test no.\"}},{\"id\":\"3\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Seq_Write_4M.mbsec_osd_device\",\"customLabel\":\"4M Write (MB/sec per OSD device)\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"OSDs\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"OSDs\"}},{\"id\":\"5\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"OSD_Media\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Media\"}},{\"id\":\"6\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"Data_Protection\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Protection\"}},{\"id\":\"7\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"OSD_Servers\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"OSD Servers\"}},{\"id\":\"8\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"OSD_Devices\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"OSD Devices\"}},{\"id\":\"9\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"Author\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Author\"}},{\"id\":\"10\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"Company\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Company\"}},{\"id\":\"11\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Rand_Read_4K.mbsec_cluster\",\"customLabel\":\"4M Read (MB/sec per cluster)\"}},{\"id\":\"12\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Rand_Write_4K.mbsec_cluster\",\"customLabel\":\"4M Write (MB/sec per cluster)\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Random-Tests",
+    "_type": "visualization",
+    "_source": {
+      "title": "Random Tests",
+      "visState": "{\"title\":\"Random Tests\",\"type\":\"table\",\"params\":{\"perPage\":20,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Rand_Read_4K.mbsec_osd_device\",\"customLabel\":\"4K Read (MB/sec per OSD device)\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"Test_no\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Test no.\"}},{\"id\":\"3\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Rand_Write_4K.mbsec_osd_device\",\"customLabel\":\"4K Write (MB/sec per OSD device)\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"OSDs\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"OSDs\"}},{\"id\":\"5\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"OSD_Media\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Media\"}},{\"id\":\"6\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"Data_Protection\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Protection\"}},{\"id\":\"7\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"OSD_Servers\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"OSD Servers\"}},{\"id\":\"8\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"OSD_Devices\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"OSD Devices\"}},{\"id\":\"9\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"Author\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Author\"}},{\"id\":\"10\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"Company\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Company\"}},{\"id\":\"11\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Rand_Read_4K.mbsec_cluster\",\"customLabel\":\"4K Read (MB/sec per cluster)\"}},{\"id\":\"12\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Rand_Write_4K.mbsec_cluster\",\"customLabel\":\"4K Write (MB/sec per cluster)\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "4K-Rand.-Read-per-#OSD",
+    "_type": "visualization",
+    "_source": {
+      "title": "4K Rand. Read per #OSD",
+      "visState": "{\"title\":\"4M Seq. Read per #OSDs\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":false,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Rand_Read_4K.mbsec_osd_device\",\"customLabel\":\"MB/sec per OSD\"}},{\"id\":\"2\",\"type\":\"count\",\"schema\":\"radius\",\"params\":{\"customLabel\":\"Number of tests\"}},{\"id\":\"3\",\"type\":\"histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"OSDs\",\"interval\":50,\"extended_bounds\":{},\"customLabel\":\"#OSDs in test\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"Config\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"OSDs/media/protection\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":true}}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "4K-Rand.-Write-per-#OSDs",
+    "_type": "visualization",
+    "_source": {
+      "title": "4K Rand. Write per #OSDs",
+      "visState": "{\"title\":\"4M Seq. Write per #OSDs\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":false,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Rand_Write_4K.mbsec_osd_device\",\"customLabel\":\"MB/sec per OSD\"}},{\"id\":\"2\",\"type\":\"count\",\"schema\":\"radius\",\"params\":{}},{\"id\":\"3\",\"type\":\"histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"OSDs\",\"interval\":50,\"extended_bounds\":{},\"customLabel\":\"#OSDs in test\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"Config\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":true}}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "4K-Rand.-Write-Performance-(MB-slash-sec)-by-Config",
+    "_type": "visualization",
+    "_source": {
+      "title": "4K Rand. Write Performance (MB/sec) by Config",
+      "visState": "{\"title\":\"4K Rand. Read Performance (MB/sec) by Config\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Rand_Write_4K.mbsec_osd_device\",\"customLabel\":\"MB/sec per OSD\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"Test_no\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Test id\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"Config\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"OSDs/media/protection\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "4K-Rand.-Read-Performance-(MB-slash-sec)-by-Config",
+    "_type": "visualization",
+    "_source": {
+      "title": "4K Rand. Read Performance (MB/sec) by Config",
+      "visState": "{\"aggs\":[{\"id\":\"1\",\"params\":{\"customLabel\":\"MB/sec per OSD\",\"field\":\"Rand_Read_4K.mbsec_osd_device\"},\"schema\":\"metric\",\"type\":\"avg\"},{\"id\":\"2\",\"params\":{\"customLabel\":\"Test id\",\"field\":\"Test_no\",\"order\":\"desc\",\"orderBy\":\"1\",\"size\":20},\"schema\":\"bucket\",\"type\":\"terms\"},{\"id\":\"3\",\"params\":{\"customLabel\":\"OSDs/media/protection\",\"field\":\"Config\",\"order\":\"desc\",\"orderBy\":\"1\",\"size\":5},\"schema\":\"bucket\",\"type\":\"terms\"}],\"listeners\":{},\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false},\"title\":\"4M Rand. Read Performance (MB/sec) by Config\",\"type\":\"table\"}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "4M-Seq.-Write-Performance-(MB-slash-sec)-by-Config",
+    "_type": "visualization",
+    "_source": {
+      "title": "4M Seq. Write Performance (MB/sec) by Config",
+      "visState": "{\"title\":\"4M Seq. Write Performance (MB/sec) by Config\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"Seq_Write_4M.mbsec_osd_device\",\"customLabel\":\"MB/sec per OSD\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"Test_no\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Test id\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"Config\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"OSDs/media/protection\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "Ceph-Tests",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Banner",
+    "_type": "visualization",
+    "_source": {
+      "title": "Banner",
+      "visState": "{\"title\":\"Banner\",\"type\":\"markdown\",\"params\":{\"markdown\":\"# Ceph Tests Dashboard\\n\\nby [![Bitergia](http://bitergia.com/public/reports/openstack/2012_09_folsom/images/bitergia-logo.png)](http://bitergia.com)\\n\\n**[Sequential tests](kibana#/dashboard/Simple-Sequential) | [Random tests](kibana#/dashboard/Simple-Random)**\\n\\n(Proof of concept)\\n\\nClick on charts, keep an eye on filters (green buttons appearing in the top).\"},\"aggs\":[],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  }
+]
