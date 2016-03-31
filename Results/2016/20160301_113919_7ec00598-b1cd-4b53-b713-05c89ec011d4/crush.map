@@ -1,0 +1,244 @@
+# begin crush map
+tunable choose_local_tries 0
+tunable choose_local_fallback_tries 0
+tunable choose_total_tries 50
+tunable chooseleaf_descend_once 1
+tunable straw_calc_version 1
+
+# devices
+device 0 osd.0
+device 1 osd.1
+device 2 osd.2
+device 3 osd.3
+device 4 osd.4
+device 5 osd.5
+device 6 osd.6
+device 7 osd.7
+device 8 osd.8
+device 9 osd.9
+device 10 osd.10
+device 11 osd.11
+device 12 osd.12
+device 13 osd.13
+device 14 osd.14
+device 15 osd.15
+device 16 osd.16
+device 17 osd.17
+device 18 osd.18
+device 19 osd.19
+device 20 osd.20
+device 21 osd.21
+device 22 osd.22
+device 23 osd.23
+device 24 osd.24
+device 25 osd.25
+device 26 osd.26
+device 27 osd.27
+device 28 osd.28
+device 29 osd.29
+device 30 osd.30
+device 31 osd.31
+device 32 osd.32
+device 33 osd.33
+device 34 osd.34
+device 35 osd.35
+device 36 osd.36
+device 37 osd.37
+device 38 osd.38
+device 39 osd.39
+device 40 osd.40
+device 41 osd.41
+device 42 osd.42
+device 43 osd.43
+device 44 osd.44
+device 45 osd.45
+device 46 osd.46
+device 47 osd.47
+device 48 osd.48
+device 49 osd.49
+device 50 osd.50
+device 51 osd.51
+device 52 osd.52
+device 53 osd.53
+device 54 osd.54
+device 55 osd.55
+device 56 osd.56
+device 57 osd.57
+device 58 osd.58
+device 59 osd.59
+device 60 osd.60
+device 61 osd.61
+device 62 osd.62
+device 63 osd.63
+device 64 osd.64
+device 65 osd.65
+device 66 osd.66
+device 67 osd.67
+device 68 osd.68
+device 69 osd.69
+device 70 osd.70
+device 71 osd.71
+device 72 osd.72
+device 73 osd.73
+device 74 osd.74
+device 75 osd.75
+device 76 osd.76
+device 77 osd.77
+device 78 osd.78
+device 79 osd.79
+
+# types
+type 0 osd
+type 1 host
+type 2 chassis
+type 3 rack
+type 4 row
+type 5 pdu
+type 6 pod
+type 7 room
+type 8 datacenter
+type 9 region
+type 10 root
+
+# buckets
+host hswNode01 {
+	id -2		# do not change unnecessarily
+	# weight 16.000
+	alg straw
+	hash 0	# rjenkins1
+	item osd.0 weight 1.000
+	item osd.1 weight 1.000
+	item osd.2 weight 1.000
+	item osd.3 weight 1.000
+	item osd.4 weight 1.000
+	item osd.5 weight 1.000
+	item osd.6 weight 1.000
+	item osd.7 weight 1.000
+	item osd.8 weight 1.000
+	item osd.9 weight 1.000
+	item osd.10 weight 1.000
+	item osd.11 weight 1.000
+	item osd.12 weight 1.000
+	item osd.13 weight 1.000
+	item osd.14 weight 1.000
+	item osd.15 weight 1.000
+}
+host hswNode02 {
+	id -4		# do not change unnecessarily
+	# weight 16.000
+	alg straw
+	hash 0	# rjenkins1
+	item osd.16 weight 1.000
+	item osd.17 weight 1.000
+	item osd.18 weight 1.000
+	item osd.19 weight 1.000
+	item osd.20 weight 1.000
+	item osd.21 weight 1.000
+	item osd.22 weight 1.000
+	item osd.23 weight 1.000
+	item osd.24 weight 1.000
+	item osd.25 weight 1.000
+	item osd.26 weight 1.000
+	item osd.27 weight 1.000
+	item osd.28 weight 1.000
+	item osd.29 weight 1.000
+	item osd.30 weight 1.000
+	item osd.31 weight 1.000
+}
+host hswNode03 {
+	id -5		# do not change unnecessarily
+	# weight 16.000
+	alg straw
+	hash 0	# rjenkins1
+	item osd.32 weight 1.000
+	item osd.33 weight 1.000
+	item osd.34 weight 1.000
+	item osd.35 weight 1.000
+	item osd.36 weight 1.000
+	item osd.37 weight 1.000
+	item osd.38 weight 1.000
+	item osd.39 weight 1.000
+	item osd.40 weight 1.000
+	item osd.41 weight 1.000
+	item osd.42 weight 1.000
+	item osd.43 weight 1.000
+	item osd.44 weight 1.000
+	item osd.45 weight 1.000
+	item osd.46 weight 1.000
+	item osd.47 weight 1.000
+}
+host hswNode04 {
+	id -6		# do not change unnecessarily
+	# weight 16.000
+	alg straw
+	hash 0	# rjenkins1
+	item osd.48 weight 1.000
+	item osd.49 weight 1.000
+	item osd.50 weight 1.000
+	item osd.51 weight 1.000
+	item osd.52 weight 1.000
+	item osd.53 weight 1.000
+	item osd.54 weight 1.000
+	item osd.55 weight 1.000
+	item osd.56 weight 1.000
+	item osd.57 weight 1.000
+	item osd.58 weight 1.000
+	item osd.59 weight 1.000
+	item osd.60 weight 1.000
+	item osd.61 weight 1.000
+	item osd.62 weight 1.000
+	item osd.63 weight 1.000
+}
+host hswNode05 {
+	id -7		# do not change unnecessarily
+	# weight 16.000
+	alg straw
+	hash 0	# rjenkins1
+	item osd.64 weight 1.000
+	item osd.65 weight 1.000
+	item osd.66 weight 1.000
+	item osd.67 weight 1.000
+	item osd.68 weight 1.000
+	item osd.69 weight 1.000
+	item osd.70 weight 1.000
+	item osd.71 weight 1.000
+	item osd.72 weight 1.000
+	item osd.73 weight 1.000
+	item osd.74 weight 1.000
+	item osd.75 weight 1.000
+	item osd.76 weight 1.000
+	item osd.77 weight 1.000
+	item osd.78 weight 1.000
+	item osd.79 weight 1.000
+}
+rack localrack {
+	id -3		# do not change unnecessarily
+	# weight 80.000
+	alg straw
+	hash 0	# rjenkins1
+	item hswNode01 weight 16.000
+	item hswNode02 weight 16.000
+	item hswNode03 weight 16.000
+	item hswNode04 weight 16.000
+	item hswNode05 weight 16.000
+}
+root default {
+	id -1		# do not change unnecessarily
+	# weight 80.000
+	alg straw
+	hash 0	# rjenkins1
+	item localrack weight 80.000
+}
+
+# rules
+rule replicated_ruleset {
+	ruleset 0
+	type replicated
+	min_size 1
+	max_size 10
+	step take default
+	step chooseleaf firstn 0 type host
+	step emit
+}
+
+# end crush map

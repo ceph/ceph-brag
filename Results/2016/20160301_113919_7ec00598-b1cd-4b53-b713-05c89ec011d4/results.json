@@ -1,0 +1,148 @@
+{
+  "information": {
+  	"cluter_uuid": "5e4eeae5-edf4-4d53-8ed5-5675207f9a35",
+  	"date": "2014-05-04T20:00:34",
+  	"submitter": {
+	  "person": "Orlando Moreno",
+	  "company": "Intel Corporation",
+	},
+  	"note": "All-NVMe Ceph Cluster, Updated after OSS 2015",
+  },
+  "platform": {
+	  "osds": 80,
+	  "osd_servers": 5,
+	  "osd_devices": 4,
+	  "osd_media": "NVMe",
+	  "cost_raw_tb": 23.3,
+	  "ceph_data_protection": "Rep 2x",
+	  "cost_usable_tb": 22.1,
+	  "v_fio": "2.2.11",
+	  "v_sysbench": "0.5",
+	  "v_radosbench": "9.2.0",
+	  "v_collectl": "4.0.2",
+  },
+  "osd_servers": {
+	  "server_vendor": "SuperMicro",
+	  "server_model": "1028U-TN10RT+",
+	  "3_5_hdds_for_osds": 0,
+	  "2_5_hdds_for_osds": 0,
+	  "2_5_ssds_for_osds": 0,
+	  "nvme_for_osds": 4,
+	  "journal_model": "Intel DC P3700",
+	  "CPU": "E5-2699v3",
+	  "CPU_sockets": 2,
+	  "RAM_GB": 128,
+	  "HBA/RAID": ,
+	  "HBA/RAID_model": ,
+	  "Network_Interface": "Intel X540-AT2 10GbE",
+	  "v_OS": "RHEL 7.1",
+	  "v_kernel": "3.10.0-229.14.1.el7",
+	},
+  "pools": [
+  	{
+  	    "pool_id": 0,
+  	    "pool_name": "rbd",
+  	    "pool_pgpnum": 512,
+  	    "pool_size": 3
+  	},
+  	{
+  	    "pool_id": 1,
+  	    "pool_name": "cbt-librbdfio",
+  	    "pool_pgpnum": 4096,
+  	    "pool_size": 2
+  	}
+  ],
+  "ceph": {
+	  "v_ceph": "RHCS 1.3",
+	  "pg_count": ,
+  },
+  "network": {
+	  "pub_network": "10GB",
+	  "cluster_network": ,
+  },
+  "clients": {
+	  "client_node_count": 6,
+	  "Client_OS": "RHEL 7.1",
+	  "client_vm_count": ,
+	  "ceph_client": "librados",
+  },
+  "load": {
+	  "CBT": "Y",
+	  "load_test_util": "FIO",
+	  "IO_queue_depth": 32,
+  },
+  "publication": {
+	  "published": "Y",
+	  "publication_url": "",
+  },
+  "notes": {
+	  "observations": "Low write performance, more room for further optimizations"
+  },
+  "benchmarks": [
+	{
+  	"suite": "CBT_IOPS-optimized Reads",
+	    "kind": "100% 4K Random Read",
+	    "iops_osd": 13898,
+	    "cost_usable_tb_iop": ,
+	    "iops_cluster": 1111902,
+	    "avg_latency": 1.67,
+	    "95th_latency": 2.99,
+	},
+	{
+  	"suite": "CBT_IOPS-optimized Writes",
+	    "kind": "100% 4K Random Write",
+	    "iops_osd": 2403.4,
+	    "cost_usable_tb_iop": ,
+	    "iops_cluster": 192272,
+	    "avg_latency": 9.86,
+	    "95th_latency": 28.69,
+	},
+	{
+  	"suite": "OLTP",
+	    "kind": "70%R/30%W Random Mix",
+	    "iops_osd": 5076.1,
+	    "cost_usable_tb_iop": ,
+	    "iops_cluster": 406088,
+	    "avg_latency": 4.66,
+	    "95th_latency": 28.85,
+	},
+	{
+  	"suite": "Sequential Write Performance",
+	    "kind": "512K 100% 16QD Sequential Write",
+	    "mbsec_osd_device": 40.18,
+	    "cost_usable_tb_mbsec": ,
+	    "mbsec_cluster": 3214.46,
+	    "avg_latency": 152.20,
+	    "95th_latency": 483.00,
+	},
+	{
+  	"suite": "Sequential Read Performance",
+	    "kind": "512K 100% 16QD Sequential Read",
+	    "mbsec_osd_device": 73.60,
+	    "cost_usable_tb_mbsec": ,
+	    "mbsec_cluster": 5888.07,
+	    "avg_latency": 83.42,
+	    "95th_latency": 276.44,
+	},
+	{
+  	"suite": "Sequential Mixed Performance",
+	    "kind": "512K 70%R/30%W 16QD Sequential Mix",
+	    "mbsec_osd_device": 70.39,
+	    "cost_usable_tb_mbsec": ,
+	    "mbsec_cluster": 5631.31,
+	    "avg_latency": 87.06,
+	    "95th_latency": 639.54,
+	},
+	{
+  	"suite": "Cassandra-like Workload",
+	    "kind": "8K/12K 50%R/50%W 8QD Sequential Mix",
+	    "iops_osd": 2580.68,
+	    "cost_usable_tb_iop": ,
+	    "iops_cluster": 206455,
+	    "avg_latency": 2.29,
+	    "95th_latency": 9.95,
+	},
+  ]
+}
+
+
