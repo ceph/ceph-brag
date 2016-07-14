@@ -50,6 +50,9 @@ def parse_args ():
     parser.add_argument("--esauth", nargs=2, default = None,
                         help = "Authentication to access ElasticSearch" + \
                         "(eg: user password)")
+    parser.add_argument("--dry", action='store_true',
+                        help = "Run a dry test")
+    parser.set_defaults(dry=False)
     args = parser.parse_args()
     return args
 
@@ -125,20 +128,22 @@ def benchmark_results (benchmark):
         results["latency_avg"] = float(benchmark["latency_avg"])
     return results
 
-def upload_elasticsearch (tests, es_server, es_auth):
+def upload_elasticsearch (tests, es_server, es_auth, dry=False):
     """Upload to ElasticSearch.
 
     :param tests: dictionary with tests
     :param es_server: ElasticSearch data, list ["host:port", "index"]
     :param es_auth: ElasticSearch auth data, list ["user", "passwd"]
+    :param dry: dry test (do not upload data to ElasticSearch)
 
     """
 
-    connections.create_connection(hosts=[es_server[0]],
-                                http_auth=[es_auth[0], es_auth[1]])
-    index = Index (es_server[1])
-    index.delete(ignore = 404)
-    Test_Sequential.init()
+    if not dry:
+        connections.create_connection(hosts=[es_server[0]],
+                                      http_auth=[es_auth[0], es_auth[1]])
+        index = Index (es_server[1])
+        index.delete(ignore = 404)
+        Test_Sequential.init()
     cont = 0
     for name, data in tests.items():
         cont = cont + 1
@@ -204,7 +209,8 @@ def upload_elasticsearch (tests, es_server, es_auth):
             test.Rand_Write_4K = Rand_Write_4K
         #test.meta.id = name
         print(test)
-        test.save()
+        if not dry:
+            test.save()
 
 if __name__ == "__main__":
 
@@ -212,4 +218,4 @@ if __name__ == "__main__":
     tests = read_tests(args.dir)
     print(tests)
     print()
-    upload_elasticsearch(tests, args.elasticsearch, args.esauth)
+    upload_elasticsearch(tests, args.elasticsearch, args.esauth, dry=args.dry)

@@ -362,7 +362,7 @@
     "_type": "visualization",
     "_source": {
       "title": "Banner",
-      "visState": "{\"title\":\"Banner\",\"type\":\"markdown\",\"params\":{\"markdown\":\"# Ceph Tests Dashboard\\n\\nby [![Bitergia](http://bitergia.com/public/reports/openstack/2012_09_folsom/images/bitergia-logo.png)](http://bitergia.com)\\n\\n**[Sequential tests](kibana#/dashboard/Simple-Sequential) | [Random tests](kibana#/dashboard/Simple-Random)**\\n\\n(Proof of concept)\\n\\nClick on charts, keep an eye on filters (green buttons appearing in the top).\"},\"aggs\":[],\"listeners\":{}}",
+      "visState": "{\"title\":\"Banner\",\"type\":\"markdown\",\"params\":{\"markdown\":\"# Ceph Tests Dashboard\\n\\nby [Bitergia](http://bitergia.com)\\n\\n**[Sequential tests](kibana#/dashboard/Simple-Sequential) | [Random tests](kibana#/dashboard/Simple-Random)**\\n\\n(Proof of concept)\\n\\nClick on charts, keep an eye on filters (green buttons appearing in the top).\"},\"aggs\":[],\"listeners\":{}}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
