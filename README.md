@@ -21,3 +21,30 @@ Which should contain the following:
 * A pruned version of CBT results set
 
 For instructions on how to generate these files, read below:
+
+[To be done]
+
+# How to generate an ElasticSearch index from submissions
+
+We can use performance testing submissions to produce an ElasticSearch index, which can be shown with Kibana dashboards (see below).
+
+To produce that index, run the [upload_tests.py script](upload_tests.py), as follows (a working Python3 environment is assumed):
+
+* Install ElasticSearch-dsl:
+
+```
+pip3 install elasticsearch_dsl
+```
+
+* Run the script to generate the index. In this example, we will use the bootstrapping JSON documents to produce the index, assuming the ElasticSearch instance is at `http://elastic-ceph.bitergia.com:80`, with auth credentials ceph / XXX, and that the index to be created is `ceph-tests`. For more information about the bootstrapping JSON documents, read the [corresponding READM.md file](bootstrapping/README.md)
+
+```
+python3 upload_tests.py --dir bootstrapping/ \
+  --elasticsearch https://elasticsearch.bitergia.com/ceph ceph-tests --esauth ceph XXX
+```
+
+You can use any name for the index, but if you intend to use the Kibana dashboard provided in this directory, the index should be named `ceph-tests`.
+
+# How to produce a Kibana dashboard to visualize submissions
+
+Once the ElasticSearch index is created, we can produce a Kibana4 dashboard for visualizing its contents. For that, deploy a Kibana instance which uses the ElasticSearch instance where the index was uploaded (see above). Then, upload the [dashboard description kibana-export.json](kibana-export.json). For that, in Kibana4, click on "Settings", "Objects", "Import", and when prompted, select the mentioned file. Three dashboards, and all the needed visualizations, will be imported into Kibana: `Simple`, `Simple Random`, `Simple Sequential`.

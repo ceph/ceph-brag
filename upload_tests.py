@@ -42,18 +42,44 @@ def parse_args ():
 
     """
     parser = argparse.ArgumentParser(description = description)
-    parser.add_argument("--dir", default = ".",
+    parser.add_argument("--dir",
                         help = "Directory with test files")
+    parser.add_argument("--files", nargs='+',
+                        help = "Test files (paths)")
     parser.add_argument("--elasticsearch", nargs=2,
                         help = "Url of elasticsearch, and index to use " + \
                         "(eg: http://localhost:9200 project)")
     parser.add_argument("--esauth", nargs=2, default = None,
                         help = "Authentication to access ElasticSearch" + \
                         "(eg: user password)")
+    parser.add_argument("--delete", action='store_true',
+                        help = "Delete index before adding tests")
+    parser.add_argument("--dry", action='store_true',
+                        help = "Run a dry test")
+    parser.set_defaults(dry=False)
     args = parser.parse_args()
     return args
 
-def read_tests (dir):
+def read_files (files):
+    """
+    Read test files, given a list with their paths
+
+    :param files: list of files
+    :returns: list with the corresponding tests
+
+    """
+
+    tests = {}
+    for file in files:
+        with open(file) as json_file:
+            data = json.load(json_file)
+            date = data["information"]["date"]
+            uuid = data["information"]["cluster_uuid"]
+            name = date + "_" + uuid
+            tests[name] = data
+    return tests
+    
+def read_dir (dir):
     """
     Read test files from directory dir.
 
@@ -67,14 +93,7 @@ def read_tests (dir):
     files = [file for file in files
                 if os.path.isfile(file) and
                     os.path.splitext(file)[-1].lower() == ".json"]
-    tests = {}
-    for file in files:
-        with open(file) as json_file:
-            data = json.load(json_file)
-            date = data["information"]["date"]
-            uuid = data["information"]["cluster_uuid"]
-            name = date + "_" + uuid
-            tests[name] = data
+    tests = read_files(files)
     return tests
 
 Results = Object(
@@ -125,20 +144,23 @@ def benchmark_results (benchmark):
         results["latency_avg"] = float(benchmark["latency_avg"])
     return results
 
-def upload_elasticsearch (tests, es_server, es_auth):
+def upload_elasticsearch (tests, es_server, es_auth, delete=False, dry=False):
     """Upload to ElasticSearch.
 
     :param tests: dictionary with tests
     :param es_server: ElasticSearch data, list ["host:port", "index"]
     :param es_auth: ElasticSearch auth data, list ["user", "passwd"]
+    :param dry: dry test (do not upload data to ElasticSearch)
 
     """
 
-    connections.create_connection(hosts=[es_server[0]],
-                                http_auth=[es_auth[0], es_auth[1]])
-    index = Index (es_server[1])
-    index.delete(ignore = 404)
-    Test_Sequential.init()
+    if not dry:
+        connections.create_connection(hosts=[es_server[0]],
+                                      http_auth=[es_auth[0], es_auth[1]])
+        index = Index (es_server[1])
+        if delete:
+            index.delete(ignore = 404)
+        Test_Sequential.init()
     cont = 0
     for name, data in tests.items():
         cont = cont + 1
@@ -148,6 +170,8 @@ def upload_elasticsearch (tests, es_server, es_auth):
         for benchmark in data["benchmarks"]:
             if benchmark["suite"] == "CBT_Throughput-optimized":
                 suite = "CBT Throughput optimized"
+                print("Found suite: {}".format(suite))
+
                 if benchmark["kind"] == "4M Sequential Read":
                     Seq_Read_4M = benchmark_results (benchmark)
                     fourMSR_mbsec_osd_device = benchmark["mbsec_osd_device"]
@@ -160,10 +184,14 @@ def upload_elasticsearch (tests, es_server, es_auth):
                     fourMSW_latency_avg = benchmark["avg_latency"]
             elif benchmark["suite"] == "IOPS-optimized":
                 suite = "IOPS optimized"
+                print("Found suite: {}".format(suite))
                 if benchmark["kind"] == "4K Random Read":
                     Rand_Read_4K = benchmark_results (benchmark)
                 elif benchmark["kind"] == "4K Random Write":
                     Rand_Write_4K = benchmark_results (benchmark)
+            else:
+                print("Warning: unknown suite: {} (ignoring)".format(benchmark["suite"]))
+                suite = ""
         if suite == "CBT Throughput optimized":
             test = Test_Sequential (
                  meta={'id': name},
@@ -202,14 +230,24 @@ def upload_elasticsearch (tests, es_server, es_auth):
                 )
             test.Rand_Read_4K = Rand_Read_4K
             test.Rand_Write_4K = Rand_Write_4K
-        #test.meta.id = name
-        print(test)
-        test.save()
+
+        if suite != "":
+            print ("Test")
+            print(test)
+            if not dry:
+                test.save()
 
 if __name__ == "__main__":
 
     args = parse_args()
-    tests = read_tests(args.dir)
+    if args.dir:
+        tests = read_dir(args.dir)
+    elif args.files:
+        tests = read_files(args.files)
+    else:
+        print("Error: specify --dir or --files")
+        exit()
     print(tests)
     print()
-    upload_elasticsearch(tests, args.elasticsearch, args.esauth)
+    upload_elasticsearch(tests, args.elasticsearch, args.esauth,
+                         delete=args.delete, dry=args.dry)
